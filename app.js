@@ -7,10 +7,10 @@ app.set('view engine', 'ejs');
 app.get('/results', function(req, res) {
   request('http://www.omdbapi.com/?s=texas&apikey=ba7f203a', function(
     error,
-    res,
+    response,
     body
   ) {
-    if (!error && res.statusCode == 200) {
+    if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
       console.log(data);
       res.render('results', { data: data });
