@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/css/style.css" rel="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/366fb4d59a.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -9,20 +11,44 @@
 </h1>
 <a href='/'>Search Again!</a>
 
-<div class="container">
-    <div class="content">
+<!-- <div class="container">
+
+    <div class="card">
         <% data["Search"].forEach(function(movie){ %>
-        <div class="title">
+        <div class="card-title">
             <strong>
                 <%= movie["Title"] %>
             </strong>
             - <%= movie["Year"] %>
+            <%=  %>
         </div>
-        <%=  %>
-        <img src='<%= movie["Poster"] %>' />
-        <% }) %>
+        <div class="card-body">
+            <img src='<%= movie["Poster"] %>' />
+            <% }) %>
+        </div>
+    </div>
+
+</div> -->
+<div class="container">
+    <div class="card-group">
+        <div class="card-md">
+            <% data["Search"].forEach(function(movie){ %>
+            <img src='<%= movie["Poster"] %>' class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><strong><%= movie["Title"] %>
+                    </strong>
+                    - <%= movie["Year"] %>
+                    <%=  %></h5>
+                <a href="#" class="btn btn-primary">Add to List</a>
+            </div>
+            <% }) %>
+        </div>
     </div>
 </div>
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
