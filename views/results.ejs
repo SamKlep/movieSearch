@@ -1,27 +1,20 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/css/style.css" rel="stylesheet" type="text/css">
-<script src="https://kit.fontawesome.com/366fb4d59a.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <%- include("partials/header") %>
 
-<h1>
-    Results Page
-</h1>
-<a href='/'>Search Again!</a>
-
-<!-- <div class="container">
-
+<!-- 
+<div class="container">
     <div class="card">
         <% data["Search"].forEach(function(movie){ %>
-        <div class="card-title">
+        <h5 class="card-title">
             <strong>
                 <%= movie["Title"] %>
             </strong>
             - <%= movie["Year"] %>
             <%=  %>
-        </div>
+        </h5>
         <div class="card-body">
             <img src='<%= movie["Poster"] %>' />
             <% }) %>
@@ -29,8 +22,9 @@
     </div>
 
 </div> -->
-<div class="container">
-    <div class="card-group">
+
+<!-- <div class="flex-container">
+    <div class="card-container">
         <div class="card-md">
             <% data["Search"].forEach(function(movie){ %>
             <img src='<%= movie["Poster"] %>' class="card-img-top" alt="...">
@@ -44,9 +38,41 @@
             <% }) %>
         </div>
     </div>
+</div> -->
+
+<header class="jumbotron">
+    <div class="container">
+        <h1><span class="glyphicon glyphicon-tent"></span> Results</p>
+            <p>
+                <a class="btn btn-primary btn-md" href="index">Go Back</a>
+            </p>
+            <!-- <p>
+                <form action="/campgrounds" method="GET" class="form-inline" id="campground-search">
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="Campground search..." class="form-control">
+                    </div>
+                </form>
+            </p> -->
+    </div>
+</header>
+
+<div class="row text-center" id="campground-grid">
+    <% data["Search"].forEach(function(movie){ %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+            <img src='<%= movie["Poster"] %>' class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><strong><%= movie["Title"] %>
+                    </strong>
+                    - <%= movie["Year"] %>
+                    <%=  %></h5>
+                <a href="#" class="btn btn-primary">Add to List</a></h5>
+
+            </div>
+        </div>
+    </div>
+    <% }); %>
 </div>
-
-
 
 
 
